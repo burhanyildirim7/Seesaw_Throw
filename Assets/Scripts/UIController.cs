@@ -11,6 +11,12 @@ public class UIController : MonoBehaviour
     public Text gamePlayScoreText, winScreenScoreText, levelNoText, tapToStartScoreText, totalElmasText;
     public Animator ScoreTextAnim;
 
+    [Header("Controllers")]
+    private ForceController forceController;
+
+    [Header("KuvvetGosterici")]
+    [SerializeField] private GameObject indicatorPanel;
+    [SerializeField] private GameObject indicator;
 
 
     // singleton yapisi burada kuruluyor.
@@ -23,6 +29,12 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         StartUI();
+        StartingEvents();
+    }
+
+    private void StartingEvents()
+    {
+        forceController = GameObject.FindObjectOfType<ForceController>();
     }
 
     // Oyun ilk acildiginda calisacak olan ui fonksiyonu. 
@@ -43,7 +55,7 @@ public class UIController : MonoBehaviour
     // TAPTOSTART TUSUNA BASILDISINDA  --- GIRIS EKRANINDA VE LEVEL BASLARINDA
     public void TapToStartButtonClick()
     {
-
+        indicatorPanel.SetActive(true);
         GameController.instance.isContinue = true;
         //PlayerController.instance.SetArmForGaming();
         TapToStartPanel.SetActive(false);
@@ -227,5 +239,18 @@ public class UIController : MonoBehaviour
     }
 
 
+
+    //Kendi olusturdugum UI lar burdan sonrasidir
+
+    public void ImplyForce()
+    {
+        indicatorPanel.SetActive(false);
+        forceController.SendForceMessage();
+    }
+
+    public void ShowForceIndicator(float eksenY)
+    {
+        indicator.transform.localPosition = Vector3.right * 155 + Vector3.up * eksenY;
+    }
 
 }

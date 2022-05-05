@@ -11,6 +11,8 @@ TagManager:
   - finish
   - collectible
   - elmas
+  - Hammer
+  - Head
   layers:
   - Default
   - TransparentFX

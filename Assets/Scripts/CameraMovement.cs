@@ -26,17 +26,43 @@ public class CameraMovement : MonoBehaviour
 
     [Header("KameraPos")]
     [SerializeField] private Vector3 offset;
-    [SerializeField] private Transform target;
+    public Transform target;
+    public bool isMoving;
+
+    Vector3 velocity;
+    public float kameraHizi;
 
     void Start()
     {
+        StartCoroutine(KarakterBul());
+    }
 
+    public void StartingEvents()
+    {
+        isMoving = false;
+    }
+
+    IEnumerator KarakterBul()
+    {
+        while (true)
+        {
+            if (GameController.instance.isContinue)
+            {
+                target = GameObject.FindWithTag("Head").transform;
+            }
+
+            yield return new WaitForSeconds(.5f);
+        }
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * 50);
+        if(target != null && isMoving)
+        {
+           //transform.position = Vector3.SmoothDamp(transform.position, target.position + Vector3.forward * -target.position.z + Vector3.right * -target.position.x + offset,ref velocity, kameraHizi - Vector3.Distance(transform.position, target.position) / 30);
+            transform.position = Vector3.Lerp(transform.position, target.position + Vector3.forward * -target.position.z + Vector3.right * -target.position.x + offset, .01f);
+        }
     }
 
 }
