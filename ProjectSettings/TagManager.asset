@@ -13,6 +13,7 @@ TagManager:
   - elmas
   - Hammer
   - Head
+  - Missile
   layers:
   - Default
   - TransparentFX
