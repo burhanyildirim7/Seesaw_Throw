@@ -37,7 +37,7 @@ public class Ragdoll : MonoBehaviour
         foreach (var rigidBody in rigidbodies)
         {
             rigidBody.useGravity = false;
-            rigidBody.velocity = Vector3.one * Random.Range(-1.5f, 1.5f);
+            rigidBody.velocity = Vector3.one * Random.Range(-2f, 2f);
         }
         kuvvet = 12 + sayi * 12;
         Debug.Log(20 + kuvvet * 20);

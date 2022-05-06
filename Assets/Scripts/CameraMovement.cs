@@ -46,9 +46,13 @@ public class CameraMovement : MonoBehaviour
     {
         while (true)
         {
-            if (GameController.instance.isContinue)
+            if (GameController.instance.isContinue && target == null)
             {
                 target = GameObject.FindWithTag("Head").transform;
+            }
+            else if(!GameController.instance.isContinue)
+            {
+                target = null;
             }
 
             yield return new WaitForSeconds(.5f);

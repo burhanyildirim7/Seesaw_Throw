@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UpgradeSystem;
 
 public class UIController : MonoBehaviour
 {
@@ -18,12 +19,18 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject indicatorPanel;
     [SerializeField] private GameObject indicator;
 
+    [Header("SatinAlmaIslemleri")]
+    private Upgrade upgrade;
+    private string itemName;//Bir butona 2 tane degisken verilemedigi icin boyle bir sisteme ihtiyac vardir
+     
 
     // singleton yapisi burada kuruluyor.
     private void Awake()
     {
         if (instance == null) instance = this;
         //else Destroy(this);
+
+        upgrade = new Upgrade(this);
     }
 
     private void Start()
@@ -251,6 +258,16 @@ public class UIController : MonoBehaviour
     public void ShowForceIndicator(float eksenY)
     {
         indicator.transform.localPosition = Vector3.right * 155 + Vector3.up * eksenY;
+    }
+
+    public void PurchaseSendMessage(string name)
+    {
+        itemName = name;
+    }
+
+    public void PurchaseSendMessage(float amount)
+    {
+        upgrade.Purchase(itemName, amount);
     }
 
 }
