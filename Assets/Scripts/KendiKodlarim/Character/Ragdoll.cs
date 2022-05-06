@@ -2,97 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ragdoll : MonoBehaviour
+namespace RagdollSystem
 {
-    [Header("ÝçeridenGerekenler")]
-    Rigidbody[] rigidbodies;
-    Animator anim;
-    // Ragdoll ragdoll;
-
-
-
-    [Header("PosizyonDegisimAyarlari")]
-    //[SerializeField] private float kuvvet;
-    private float kuvvet;  //Maksimum 30-40 olabilir
-    [SerializeField] private float kuvvetDegisim;
-
-    private bool isJumping;
-
-    void Start()
+    public class Ragdoll
     {
-        rigidbodies = GetComponentsInChildren<Rigidbody>();
-        anim = transform.GetChild(0).GetComponent<Animator>();
-        //  ragdoll = GetComponent<Ragdoll>();
-        isJumping = false;
+        [Header("ÝçeridenGerekenler")]
+        private Transform _transform;
+        private Rigidbody[] _rigidbodies;
+        
 
-        rigidbodies = transform.GetChild(0).GetComponentsInChildren<Rigidbody>();
-        foreach (var rigidBody in rigidbodies)
+        public Ragdoll(Transform transform)
         {
-            rigidBody.isKinematic = true;
-        }
-    }
+            _transform = transform;
+            _rigidbodies = _transform.GetChild(0).GetComponentsInChildren<Rigidbody>();
 
-    public void LaunchingCharacter(float sayi)
-    {
-        foreach (var rigidBody in rigidbodies)
-        {
-            rigidBody.useGravity = false;
-            rigidBody.velocity = Vector3.one * Random.Range(-2f, 2f);
-        }
-        kuvvet = 12 + sayi * 12;
-        Debug.Log(20 + kuvvet * 20);
-        isJumping = true;
-
-        RagdollAktif();
-    }
-
-    private void FixedUpdate()
-    {
-        if (GameController.instance.isContinue)
-        {
-            if (isJumping)
+            foreach (var rigidBody in _rigidbodies)
             {
-                transform.Translate(Vector3.up * Time.deltaTime * kuvvet);
-                if(kuvvet <= 0)
-                {
-                    kuvvetDegisim = Mathf.Abs(kuvvet) / 7;
-                }
-                else
-                {
-                    kuvvetDegisim = 0;
-                }
-                
-                kuvvet = kuvvet - (12 - kuvvetDegisim) * Time.deltaTime;
-            }
-
-            if (transform.position.y <= 5 && kuvvet < 0 && isJumping)
-            {
-                isJumping = false;
-                foreach (var rigidBody in rigidbodies)
-                {
-                    rigidBody.velocity = -Vector3.up * 15;
-                    rigidBody.useGravity = true;
-                }
+                rigidBody.isKinematic = true;
             }
         }
-    }
 
-
-    public void RagdollPasif()
-    {
-        foreach (var rigidBody in rigidbodies)
+        public void LaunchingCharacter()
         {
-            rigidBody.isKinematic = true;
+            //Ragdoll ayarini bu kisim yapar
+            foreach (var rigidbody in _rigidbodies)
+            {
+                rigidbody.isKinematic = false;
+                rigidbody.useGravity = false;
+                rigidbody.velocity = Vector3.one * Random.Range(-2f, 2f);
+            }
         }
-        anim.enabled = true;
-    }
 
-    public void RagdollAktif()
-    {
-        foreach (var rigidbody in rigidbodies)
+        public void ApplyForce()
         {
-            rigidbody.isKinematic = false;
+            foreach (var rigidbody in _rigidbodies)
+            {
+                rigidbody.velocity = Vector3.up * Random.Range(-15f, -5f);
+                rigidbody.useGravity = true;
+            }
         }
-        anim.enabled = false;
     }
 }

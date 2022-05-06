@@ -26,6 +26,6 @@ public class ForceController : MonoBehaviour
 
     public void SendForceMessage()
     {
-        GameObject.FindObjectOfType<Hammer>().ForceMessage(Mathf.Cos(Time.time * speedIndicator));
+        GameObject.FindObjectOfType<Hammer>().ForceMessage(Mathf.Abs(Mathf.Cos(Time.time * speedIndicator)));
     }
 }

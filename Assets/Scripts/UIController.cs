@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 {
     public static UIController instance; // Singleton yapisi icin gerekli ornek
 
-    public GameObject TapToStartPanel, LoosePanel, GamePanel, WinPanel, winScreenEffectObject, winScreenCoinImage, startScreenCoinImage, scoreEffect;
+    public GameObject PurchasePanel,TapToStartPanel, LoosePanel, GamePanel, WinPanel, winScreenEffectObject, winScreenCoinImage, startScreenCoinImage, scoreEffect;
     public Text gamePlayScoreText, winScreenScoreText, levelNoText, tapToStartScoreText, totalElmasText;
     public Animator ScoreTextAnim;
 
@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
     [Header("SatinAlmaIslemleri")]
     private Upgrade upgrade;
     private string itemName;//Bir butona 2 tane degisken verilemedigi icin boyle bir sisteme ihtiyac vardir
+    [SerializeField] private Text strengthPrice;
+    [SerializeField] private Text incomePrice;
      
 
     // singleton yapisi burada kuruluyor.
@@ -41,6 +43,7 @@ public class UIController : MonoBehaviour
 
     private void StartingEvents()
     {
+        ShowPrice();
         forceController = GameObject.FindObjectOfType<ForceController>();
     }
 
@@ -62,6 +65,7 @@ public class UIController : MonoBehaviour
     // TAPTOSTART TUSUNA BASILDISINDA  --- GIRIS EKRANINDA VE LEVEL BASLARINDA
     public void TapToStartButtonClick()
     {
+        PurchasePanel.SetActive(false);
         indicatorPanel.SetActive(true);
         GameController.instance.isContinue = true;
         //PlayerController.instance.SetArmForGaming();
@@ -75,6 +79,7 @@ public class UIController : MonoBehaviour
     // RESTART TUSUNA BASILDISINDA  --- LOOSE EKRANINDA
     public void RestartButtonClick()
     {
+        PurchasePanel.SetActive(true);
         GamePanel.SetActive(false);
         LoosePanel.SetActive(false);
         TapToStartPanel.SetActive(true);
@@ -86,6 +91,7 @@ public class UIController : MonoBehaviour
     // NEXT LEVEL TUSUNA BASILDIGINDA... WIN EKRANINDAKI BUTON
     public void NextLevelButtonClick()
     {
+        PurchasePanel.SetActive(true);
         SetTapToStartScoreText();
         TapToStartPanel.SetActive(true);
         WinPanel.SetActive(false);
@@ -248,6 +254,11 @@ public class UIController : MonoBehaviour
 
 
     //Kendi olusturdugum UI lar burdan sonrasidir
+    private void ShowPrice()
+    {
+        strengthPrice.text = upgrade.ShowPrice("Strength").ToString();
+        incomePrice.text = upgrade.ShowPrice("Income").ToString();
+    }
 
     public void ImplyForce()
     {
@@ -268,6 +279,7 @@ public class UIController : MonoBehaviour
     public void PurchaseSendMessage(float amount)
     {
         upgrade.Purchase(itemName, amount);
+        ShowPrice();
     }
 
 }

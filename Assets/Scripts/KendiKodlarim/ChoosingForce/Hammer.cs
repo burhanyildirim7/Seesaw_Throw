@@ -22,12 +22,6 @@ public class Hammer : MonoBehaviour
         cameraMovement = GameObject.FindObjectOfType<CameraMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void ForceMessage(float sayi)
     {
         anim.Play("HammerAnim");
@@ -42,7 +36,7 @@ public class Hammer : MonoBehaviour
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < player.Length; i++)
         {
-            player[i].GetComponent<Ragdoll>().LaunchingCharacter(kuvvetSayisi);
+            player[i].GetComponent<CharacterControl>().RagdollAktif(kuvvetSayisi);
         }
 
         StartCoroutine(DelaySending());
@@ -50,7 +44,7 @@ public class Hammer : MonoBehaviour
 
     IEnumerator DelaySending()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.35f);
         cameraMovement.isMoving = true;
     }
 }
