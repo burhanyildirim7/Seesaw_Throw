@@ -20,12 +20,13 @@ public class BalonAnim : MonoBehaviour
     {
         if (WhichTurn == MoveTurnType.LeftBaloon)
         {
-            gameObject.transform.DOMoveX(transform.position.x + 7, 5).SetLoops(20, LoopType.Restart);
+
+            gameObject.transform.DOMoveX(transform.position.x + 7, 5).SetLoops(20, LoopType.Yoyo);
         }
         
         else if(WhichTurn == MoveTurnType.RightBaloon)
         {
-            gameObject.transform.DOMoveX(transform.position.x - 7, 5).SetLoops(20, LoopType.Restart);
+            gameObject.transform.DOMoveX(transform.position.x - 7, 5).SetLoops(20, LoopType.Yoyo);
         }
 
         else if (WhichTurn == MoveTurnType.rocket)
