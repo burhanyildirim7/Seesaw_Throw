@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RagdollSystem;
+using IndicatorSystem;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -10,21 +11,28 @@ public class CharacterControl : MonoBehaviour
     private float kuvvet;  //Maksimum 30-40 olabilir
     [SerializeField] private float kuvvetDegisim;
 
-    private bool isJumping;
-
     [Header("AnimasyonAyarlari")]
     private Animator anim;
 
-    [Header("RagdollAyarlari")]
+    [Header("nameSpaceKullanimlari")]
     private Ragdoll ragdoll;
+    private Indicator indicator;
+
+
+    private bool isJumping;
+    private bool hasFallen;
+
+    [SerializeField] private GameObject obj_indicator;
 
 
     void Start()
     {
         anim = transform.GetChild(0).GetComponent<Animator>();
         ragdoll = new Ragdoll(transform);
+        indicator = new Indicator(transform);
 
         isJumping = false;
+        hasFallen = false;
     }
 
     private void FixedUpdate()
@@ -38,10 +46,11 @@ public class CharacterControl : MonoBehaviour
                 {
                     kuvvetDegisim = Mathf.Abs(kuvvet) / 7;
                 }
-                else
+                else if(!hasFallen)
                 {
-                    Debug.Log("Dusme tamamlandi");
+                    indicator.CreateIndicator(obj_indicator);
                     kuvvetDegisim = 0;
+                    hasFallen = true;
                 }
 
                 kuvvet = kuvvet - (12 - kuvvetDegisim) * Time.deltaTime;
