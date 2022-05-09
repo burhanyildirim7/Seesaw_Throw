@@ -8,7 +8,7 @@ public class CharacterControl : MonoBehaviour
 {
 
     [Header("PosizyonDegisimAyarlari")]
-    private float kuvvet;  //Maksimum 30-40 olabilir
+    public float kuvvet;  //Maksimum 30-40 olabilir
     [SerializeField] private float kuvvetDegisim;
 
     [Header("AnimasyonAyarlari")]
@@ -67,8 +67,8 @@ public class CharacterControl : MonoBehaviour
     public void RagdollAktif(float sayi)
     {
         anim.enabled = false;
-        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * 2);
-        Debug.Log(sayi);
+        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * Random.Range(1.8f, 2.2f));
+        Debug.Log(kuvvet);
         isJumping = true;
         ragdoll.LaunchingCharacter();
     }

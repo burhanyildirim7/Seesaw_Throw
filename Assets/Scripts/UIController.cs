@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
 
     [Header("Controllers")]
     private ForceController forceController;
+    private CameraMovement cameraMovement;
 
     [Header("KuvvetGosterici")]
     [SerializeField] private GameObject indicatorPanel;
@@ -33,6 +34,8 @@ public class UIController : MonoBehaviour
         //else Destroy(this);
 
         upgrade = new Upgrade(this);
+
+        cameraMovement = GameObject.FindObjectOfType<CameraMovement>();
     }
 
     private void Start()
@@ -74,6 +77,8 @@ public class UIController : MonoBehaviour
         SetLevelText(LevelController.instance.totalLevelNo);
         SetGamePlayScoreText();
 
+
+        cameraMovement.StartingEvents();
     }
 
     // RESTART TUSUNA BASILDISINDA  --- LOOSE EKRANINDA
@@ -85,6 +90,8 @@ public class UIController : MonoBehaviour
         TapToStartPanel.SetActive(true);
         LevelController.instance.RestartLevelEvents();
         SetTapToStartScoreText();
+
+        cameraMovement.StartingEvents();
     }
 
 
@@ -145,6 +152,7 @@ public class UIController : MonoBehaviour
 
     IEnumerator WinScreenDelay()
     {
+        yield return new WaitForSeconds(1.5f);
         WinPanel.SetActive(true);
         winScreenScoreText.text = "0";
         int sayac = 0;
