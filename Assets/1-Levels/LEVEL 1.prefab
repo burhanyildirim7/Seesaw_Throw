@@ -6730,7 +6730,7 @@ Transform:
   - {fileID: 8886490834286486716}
   m_Father: {fileID: 8759251219072347007}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -113.02168}
 --- !u!114 &2227719753214072767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6757,6 +6757,7 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 2e7e8c3440e02d54cb81b7bb5e58ff12, type: 2}
+  - {fileID: 7400000, guid: 5d92b72852613fe449d3b9432b25aa37, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

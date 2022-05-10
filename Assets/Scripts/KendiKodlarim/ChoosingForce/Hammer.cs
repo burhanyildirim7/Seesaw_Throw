@@ -24,8 +24,18 @@ public class Hammer : MonoBehaviour
 
     public void ForceMessage(float sayi)
     {
-        anim.Play("HammerAnim");
         kuvvetSayisi = sayi;
+
+        if(kuvvetSayisi <= .8f)
+        {
+            Debug.Log("A");
+            anim.Play("HammerAnim1");
+        }
+        else if(kuvvetSayisi > .8f)
+        {
+            Debug.Log("B");
+            anim.Play("HammerAnim2");
+        }
     }
 
     public void SendMessage()
@@ -44,7 +54,7 @@ public class Hammer : MonoBehaviour
 
     IEnumerator DelaySending()
     {
-        yield return new WaitForSeconds(.35f);
+        yield return new WaitForSeconds(.18f);
         cameraMovement.isMoving = true;
     }
 }

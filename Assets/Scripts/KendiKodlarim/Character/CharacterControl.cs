@@ -67,8 +67,14 @@ public class CharacterControl : MonoBehaviour
     public void RagdollAktif(float sayi)
     {
         anim.enabled = false;
-        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * Random.Range(1.8f, 2.2f));
-        Debug.Log(kuvvet);
+        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * Random.Range(1.98f, 2.02f));
+
+        if(kuvvet >= 77.25f)
+        {
+            kuvvet = 77.25f;
+        }
+        
+        //Debug.Log(kuvvet);
         isJumping = true;
         ragdoll.LaunchingCharacter();
     }

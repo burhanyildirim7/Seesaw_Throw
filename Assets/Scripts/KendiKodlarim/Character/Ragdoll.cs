@@ -31,11 +31,11 @@ namespace RagdollSystem
                 rigidbody.useGravity = false;
                 if(rigidbody.mass <= 2)
                 {
-                    rigidbody.velocity = Vector3.one * Random.Range(-3f, 3);
+                    rigidbody.velocity = Vector3.one * Random.Range(-2f, 2f);
                 }
                 else if (rigidbody.mass >= 2 && rigidbody.mass <= 5)
                 {
-                    rigidbody.velocity = Vector3.one * Random.Range(-1f, 1);
+                    rigidbody.velocity = Vector3.one * Random.Range(-.8f, .8f);
                 }
                 
             }

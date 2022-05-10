@@ -20,7 +20,7 @@ namespace IndicatorSystem
             GameObject obje = Instantiate(olusacakObje, Vector3.up * _transform.position.y + Vector3.forward * 3, Quaternion.identity);
             obje.transform.parent = GameObject.FindWithTag("Object").transform;
 
-            Text text = obje.transform.GetChild(1).transform.GetComponent<Text>();
+            Text text = obje.transform.GetChild(1).transform.GetChild(0).transform.GetComponent<Text>();
             text.text = ((int)_transform.position.y).ToString();
         }
 

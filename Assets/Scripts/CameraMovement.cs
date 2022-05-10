@@ -76,7 +76,6 @@ public class CameraMovement : MonoBehaviour
             }
             else
             {
-                Debug.Log("oyun bitti");
                 UIController.instance.ActivateWinScreen();
                 isMoving = false;
             }
