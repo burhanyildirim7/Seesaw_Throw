@@ -21,7 +21,12 @@ namespace UpgradeSystem
             }
             else
             {
-                PlayerPrefs.SetFloat(name, PlayerPrefs.GetFloat(name) + 1);
+                if (PlayerPrefs.GetInt("totalScore") >= PlayerPrefs.GetInt(name) * 500)
+                {
+                    Debug.Log(PlayerPrefs.GetInt(name));
+                    PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name) + 1);
+                    PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - PlayerPrefs.GetInt(name) * 500);
+                }
             }
 
 

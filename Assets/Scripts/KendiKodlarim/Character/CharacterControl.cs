@@ -65,13 +65,13 @@ public class CharacterControl : MonoBehaviour
                 }
                 else if (!hasFallen)
                 {
-                    if (transform.gameObject == transform.parent.transform.GetChild(0).transform.gameObject)
+                    if (transform.parent.transform.gameObject == transform.parent.transform.parent.transform.GetChild(0).transform.gameObject)
                     {
                         GameController.instance.isContinue = false;
                         indicator.CreateIndicator(obj_indicator);
                     }
 
-                    GameController.instance.SetScore((int)transform.position.y);
+                    GameController.instance.SetScore((int)transform.position.y * 2);
 
                     kuvvetDegisim = 0;
                     hasFallen = true;

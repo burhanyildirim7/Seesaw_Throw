@@ -163,7 +163,6 @@ public class UIController : MonoBehaviour
     IEnumerator WinScreenDelay()
     {
         yield return new WaitForSeconds(1.5f);
-        Debug.Log(GameController.instance.score);
         WinPanel.SetActive(true);
         winScreenScoreText.text = "0";
         int sayac = 10;
@@ -277,6 +276,7 @@ public class UIController : MonoBehaviour
     {
         strengthPrice.text = upgrade.ShowPrice("Strength").ToString();
         incomePrice.text = upgrade.ShowPrice("Income").ToString();
+        tapToStartScoreText.text = PlayerPrefs.GetInt("totalScore").ToString();
     }
 
     public void ImplyForce()

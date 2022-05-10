@@ -27,7 +27,6 @@ public class CameraMovement : MonoBehaviour
 
     public void StartingEvents()
     {
-        Debug.Log("StartingEvents()");
         transform.position = startingPos;
 
 
