@@ -19,18 +19,18 @@ public class ActiveCharacter : MonoBehaviour
                 break;
             }
         }
-        PlayerPrefs.SetInt("level", 2);
-        Debug.Log((int)(PlayerPrefs.GetInt("level")) / 5);
 
-        if (PlayerPrefs.GetInt("level") >= childCount)
+        PlayerPrefs.SetInt("level", 6);
+
+        if (PlayerPrefs.GetInt("level") > childCount)
         {
-            if (childCount >= PlayerPrefs.GetInt("level") % 5)
+            if(PlayerPrefs.GetInt("level") % 5 > childCount)
             {
-                obje = Instantiate(characterView[(int)(PlayerPrefs.GetInt("level")) / 5 + 1], Vector3.zero, Quaternion.identity);
+                obje = Instantiate(characterView[(int)(PlayerPrefs.GetInt("level")) / 5], Vector3.zero, Quaternion.identity);
             }
             else
             {
-                obje = Instantiate(characterView[(int)(PlayerPrefs.GetInt("level")) / 5], Vector3.zero, Quaternion.identity);
+                obje = Instantiate(characterView[(int)(PlayerPrefs.GetInt("level")) / 5 - 1], Vector3.zero, Quaternion.identity);
             }
 
             obje.transform.parent = transform;
