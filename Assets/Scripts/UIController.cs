@@ -68,6 +68,8 @@ public class UIController : MonoBehaviour
     // TAPTOSTART TUSUNA BASILDISINDA  --- GIRIS EKRANINDA VE LEVEL BASLARINDA
     public void TapToStartButtonClick()
     {
+        GameController.instance.StartingEvents();
+
         PurchasePanel.SetActive(false);
         indicatorPanel.SetActive(true);
         GameController.instance.isContinue = true;
@@ -91,9 +93,10 @@ public class UIController : MonoBehaviour
         LevelController.instance.RestartLevelEvents();
         SetTapToStartScoreText();
 
+        
         cameraMovement.StartingEvents();
-
-        cameraMovement.StartingEvents();
+        GameController.instance.ScoreCarp();
+        tapToStartScoreText.text = PlayerPrefs.GetInt("totalScore").ToString();
     }
 
 
@@ -108,7 +111,10 @@ public class UIController : MonoBehaviour
         LevelController.instance.NextLevelEvents();
         StartCoroutine(StartScreenCoinEffect());
 
+
         cameraMovement.StartingEvents();
+        GameController.instance.ScoreCarp();
+        tapToStartScoreText.text = PlayerPrefs.GetInt("totalScore").ToString();
     }
 
 
@@ -157,9 +163,10 @@ public class UIController : MonoBehaviour
     IEnumerator WinScreenDelay()
     {
         yield return new WaitForSeconds(1.5f);
+        Debug.Log(GameController.instance.score);
         WinPanel.SetActive(true);
         winScreenScoreText.text = "0";
-        int sayac = 0;
+        int sayac = 10;
         while (sayac < GameController.instance.score)
         {
             sayac += PlayerController.instance.collectibleDegeri;

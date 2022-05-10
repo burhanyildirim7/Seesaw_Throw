@@ -71,6 +71,8 @@ public class CharacterControl : MonoBehaviour
                         indicator.CreateIndicator(obj_indicator);
                     }
 
+                    GameController.instance.SetScore((int)transform.position.y);
+
                     kuvvetDegisim = 0;
                     hasFallen = true;
                 }

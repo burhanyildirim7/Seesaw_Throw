@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool isContinue;  // ayrintilar icin beni oku 19. satirdan itibaren bak
 
 
+
 	private void Awake()
 	{
         if (instance == null) instance = this;
@@ -23,6 +24,13 @@ public class GameController : MonoBehaviour
         isContinue = false;
     }
 
+    public void StartingEvents()
+    {
+        score = 0;
+    }
+
+
+
 
     /// <summary>
     /// Bu fonksiyon geçerli leveldeki scoreu belirtilen miktarda artirir veya azaltir. Artirma icin +5 gibi pozitif eksiltme
@@ -31,7 +39,10 @@ public class GameController : MonoBehaviour
     /// <param name="eklenecekScore">Her collectible da ne kadar score eklenip cikarilacaksa parametre olarak o sayi verilmeli</param>
     public void SetScore(int eklenecekScore)
 	{
-        if(PlayerController.instance.collectibleVarMi) score += eklenecekScore;
+       // if (PlayerController.instance.collectibleVarMi)
+      //  {
+            score += eklenecekScore;
+       // }
         // Eðer oyunda collectible yok ise developer kendi score sistemini yazmalý...
 
     }
@@ -55,10 +66,8 @@ public class GameController : MonoBehaviour
     /// Oyun sonu x ler hesaplanip kac ile carpilacaksa parametre olacak o sayi gonderilmeli.
     /// </summary>
     /// <param name="katsayi"></param>
-    public void ScoreCarp(int katsayi)
+    public void ScoreCarp()
 	{
-        if (PlayerController.instance.xVarMi) score *= katsayi;
-        else score = 1 * score;
         PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") + score);
     }
 
