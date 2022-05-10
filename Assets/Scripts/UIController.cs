@@ -92,6 +92,8 @@ public class UIController : MonoBehaviour
         SetTapToStartScoreText();
 
         cameraMovement.StartingEvents();
+
+        cameraMovement.StartingEvents();
     }
 
 
@@ -105,6 +107,8 @@ public class UIController : MonoBehaviour
         GamePanel.SetActive(false);
         LevelController.instance.NextLevelEvents();
         StartCoroutine(StartScreenCoinEffect());
+
+        cameraMovement.StartingEvents();
     }
 
 

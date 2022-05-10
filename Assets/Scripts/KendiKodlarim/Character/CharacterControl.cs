@@ -21,6 +21,7 @@ public class CharacterControl : MonoBehaviour
 
     private bool isJumping;
     private bool hasFallen;
+    private bool hasBegan;
 
     [SerializeField] private GameObject obj_indicator;
 
@@ -33,11 +34,27 @@ public class CharacterControl : MonoBehaviour
 
         isJumping = false;
         hasFallen = false;
+
+        hasBegan = false;
+        StartCoroutine(StartControl());
+    }
+
+    private IEnumerator StartControl()
+    {
+        while(true)
+        {
+            if(GameController.instance.isContinue)
+            {
+                hasBegan = true;
+                break;
+            }
+            yield return null;
+        }
     }
 
     private void FixedUpdate()
     {
-        if (GameController.instance.isContinue)
+        if (hasBegan)
         {
             if (isJumping)
             {
@@ -46,12 +63,13 @@ public class CharacterControl : MonoBehaviour
                 {
                     kuvvetDegisim = Mathf.Abs(kuvvet) / 7;
                 }
-                else if(!hasFallen)
+                else if (!hasFallen)
                 {
-                    if(transform.gameObject == transform.parent.transform.GetChild(0).transform.gameObject)
+                    if (transform.gameObject == transform.parent.transform.GetChild(0).transform.gameObject)
                     {
+                        GameController.instance.isContinue = false;
                         indicator.CreateIndicator(obj_indicator);
-                    } 
+                    }
 
                     kuvvetDegisim = 0;
                     hasFallen = true;
@@ -73,11 +91,11 @@ public class CharacterControl : MonoBehaviour
         anim.enabled = false;
         kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * Random.Range(1.98f, 2.02f));
 
-        if(kuvvet >= 77.25f)
+        if (kuvvet >= 77.25f)
         {
             kuvvet = 77.25f;
         }
-        
+
         //Debug.Log(kuvvet);
         isJumping = true;
         ragdoll.LaunchingCharacter();

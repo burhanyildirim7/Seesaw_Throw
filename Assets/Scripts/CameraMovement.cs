@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     [Header("KameraPos")]
     [SerializeField] private Vector3 offset;
+    private Vector3 startingPos;
     public Transform target;
     public bool isMoving;
 
@@ -20,20 +21,29 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(KarakterBul());
+        startingPos = transform.position;
     }
+
 
     public void StartingEvents()
     {
+        Debug.Log("StartingEvents()");
+        transform.position = startingPos;
+
+
         speedCam = 0;
         characterControllers.Clear();
+        characterControl = null;
         isMoving = false;
 
         GameObject[] obje = GameObject.FindGameObjectsWithTag("Player");
+
         for (int i = 0; i < obje.Length; i++)
         {
             characterControllers.Add(obje[i].transform.GetComponent<CharacterControl>());
         }
+
+        StartCoroutine(KarakterBul());
     }
 
     IEnumerator KarakterBul()
@@ -47,16 +57,17 @@ public class CameraMovement : MonoBehaviour
 
                 for (int i = 0; i < characterControllers.Count; i++)
                 {
-                    if(characterControllers[i].kuvvet >= enYakinKuvvet)
+                    if (characterControllers[i].kuvvet >= enYakinKuvvet)
                     {
                         target = characterControllers[i].transform;
                         characterControl = characterControllers[i];
                     }
                 }
             }
-            else if(!GameController.instance.isContinue)
+            else if (!GameController.instance.isContinue)
             {
                 target = null;
+                break;
             }
 
             yield return new WaitForSeconds(.5f);
@@ -66,9 +77,9 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(target != null && isMoving)
+        if (target != null && isMoving)
         {
-            if(characterControl.kuvvet >= 0)
+            if (characterControl.kuvvet >= 0)
             {
                 //transform.position = Vector3.SmoothDamp(transform.position, target.position + Vector3.forward * -target.position.z + Vector3.right * -target.position.x + offset,ref velocity, kameraHizi - Vector3.Distance(transform.position, target.position) / 30);
                 speedCam = Mathf.Lerp(speedCam, tergetSpeedCam, 1 * Time.deltaTime);
