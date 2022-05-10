@@ -45,7 +45,6 @@ namespace RagdollSystem
         {
             foreach (var rigidbody in _rigidbodies)
             {
-                rigidbody.velocity = Vector3.up * Random.Range(-15f, -5f);
                 rigidbody.useGravity = true;
             }
         }

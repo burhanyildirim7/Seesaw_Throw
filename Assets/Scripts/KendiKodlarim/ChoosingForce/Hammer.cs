@@ -28,12 +28,10 @@ public class Hammer : MonoBehaviour
 
         if(kuvvetSayisi <= .8f)
         {
-            Debug.Log("A");
             anim.Play("HammerAnim1");
         }
         else if(kuvvetSayisi > .8f)
         {
-            Debug.Log("B");
             anim.Play("HammerAnim2");
         }
     }

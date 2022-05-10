@@ -48,7 +48,11 @@ public class CharacterControl : MonoBehaviour
                 }
                 else if(!hasFallen)
                 {
-                    indicator.CreateIndicator(obj_indicator);
+                    if(transform.gameObject == transform.parent.transform.GetChild(0).transform.gameObject)
+                    {
+                        indicator.CreateIndicator(obj_indicator);
+                    } 
+
                     kuvvetDegisim = 0;
                     hasFallen = true;
                 }
