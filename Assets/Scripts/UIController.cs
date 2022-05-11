@@ -148,7 +148,7 @@ public class UIController : MonoBehaviour
     /// </summary>
     public void SetTotalElmasText()
     {
-        totalElmasText.text = PlayerPrefs.GetInt("totalElmas").ToString();
+        totalElmasText.text = PlayerPrefs.GetFloat("totalElmas").ToString();
     }
 
     /// <summary>

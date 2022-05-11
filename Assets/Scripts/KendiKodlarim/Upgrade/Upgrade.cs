@@ -11,26 +11,18 @@ namespace UpgradeSystem
         public Upgrade(UIController uIController)
         {
             _UIController = uIController;
+
+            
         }
 
         public void Purchase(string name, float amount)
         {
-            if(!PlayerPrefs.HasKey(name))
+            if (PlayerPrefs.GetInt("totalScore") >= (PlayerPrefs.GetFloat(name) + 1) * 500)
             {
-                PlayerPrefs.SetFloat(name, 1);
-            }
-            else
-            {
-                if (PlayerPrefs.GetInt("totalScore") >= PlayerPrefs.GetInt(name) * 500)
-                {
-                    Debug.Log(PlayerPrefs.GetInt(name));
-                    PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name) + 1);
-                    PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - PlayerPrefs.GetInt(name) * 500);
-                }
-            }
+                PlayerPrefs.SetFloat(name, PlayerPrefs.GetFloat(name) + 1);
 
-
-         //   Debug.Log("isim = " + name + " amount = " + amount.ToString());
+                PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - (int)PlayerPrefs.GetFloat(name) * 500);
+            }
         }
 
         public float ShowPrice(string name)

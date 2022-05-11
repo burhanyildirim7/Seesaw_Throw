@@ -71,7 +71,7 @@ public class CharacterControl : MonoBehaviour
                         indicator.CreateIndicator(obj_indicator);
                     }
 
-                    GameController.instance.SetScore((int)transform.position.y * 2);
+                    GameController.instance.SetScore((int)transform.position.y * 25);
 
                     kuvvetDegisim = 0;
                     hasFallen = true;
@@ -98,7 +98,6 @@ public class CharacterControl : MonoBehaviour
             kuvvet = 77.25f;
         }
 
-        //Debug.Log(kuvvet);
         isJumping = true;
         ragdoll.LaunchingCharacter();
     }
