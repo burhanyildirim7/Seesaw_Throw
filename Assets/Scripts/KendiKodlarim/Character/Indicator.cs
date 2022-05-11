@@ -8,19 +8,21 @@ namespace IndicatorSystem
     public class Indicator : MonoBehaviour
     {
         private Transform _transform;
+        private Transform _camera;
 
         public Indicator(Transform transform)
         {
             _transform = transform;
+            _camera = GameObject.FindObjectOfType<CameraMovement>().transform;
         }
 
 
         public void CreateIndicator(GameObject olusacakObje)
         {
-            GameObject obje = Instantiate(olusacakObje, Vector3.up * _transform.position.y + Vector3.forward * 3, Quaternion.identity);
+            GameObject obje = Instantiate(olusacakObje, Vector3.up * _transform.position.y + Vector3.forward * 3 + Vector3.right * _camera.position.x, Quaternion.identity);
             obje.transform.parent = GameObject.FindWithTag("Object").transform;
 
-            Text text = obje.transform.GetChild(1).transform.GetChild(0).transform.GetComponent<Text>();
+            Text text = obje.transform.GetChild(1).transform.GetChild(1).transform.GetComponent<Text>();
             text.text = ((int)_transform.position.y).ToString();
         }
 

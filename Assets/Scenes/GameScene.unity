@@ -183,7 +183,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dca7afcde023a8a4a8aa8debbdbd5427, type: 3}
-    m_FontSize: 82
+    m_FontSize: 67
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -194,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 1500
+  m_Text: 10000
 --- !u!222 &8663312
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6826d214a2b9d40ab90568c700cf2ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 5, z: -15}
+  offset: {x: -1, y: 5, z: -15}
   target: {fileID: 0}
   isMoving: 0
   tergetSpeedCam: 2
@@ -2572,7 +2572,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dca7afcde023a8a4a8aa8debbdbd5427, type: 3}
-    m_FontSize: 82
+    m_FontSize: 67
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -2583,7 +2583,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 1500
+  m_Text: 10000
 --- !u!222 &1780870690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8535,7 +8535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228912516974645006, guid: 2e4d748033ad50f4098043de43633777, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.285
+      value: -4.24
       objectReference: {fileID: 0}
     - target: {fileID: 7228912516974645006, guid: 2e4d748033ad50f4098043de43633777, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -15,6 +15,7 @@ TagManager:
   - Head
   - Missile
   - Object
+  - ActiveCharacter
   layers:
   - Default
   - TransparentFX

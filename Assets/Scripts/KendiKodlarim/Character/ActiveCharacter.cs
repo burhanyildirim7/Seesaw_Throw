@@ -9,7 +9,30 @@ public class ActiveCharacter : MonoBehaviour
     int childCount;
     private GameObject obje;
 
+    private bool isOurCharacter;
+
     void Start()
+    {
+        if (isOurCharacter)
+        {
+            ActiveOurCharacter();
+        }
+        else
+        {
+            ActiveLaunchingCharacter();
+        }
+    }
+
+    private void ActiveOurCharacter()
+    {
+        GameObject obje = Instantiate(characterView[(int)(PlayerPrefs.GetFloat("Strength") / 3)], transform.position, Quaternion.identity);
+        Debug.Log((int)(PlayerPrefs.GetFloat("Strength") / 3));
+
+        obje.transform.parent = transform;
+        obje.transform.localPosition = Vector3.zero;
+    }
+
+    private void ActiveLaunchingCharacter()
     {
         for (int i = 0; i < transform.parent.transform.childCount; i++)
         {
@@ -20,11 +43,11 @@ public class ActiveCharacter : MonoBehaviour
             }
         }
 
-        PlayerPrefs.SetInt("level", 6);
+        PlayerPrefs.SetInt("level", 5);
 
         if (PlayerPrefs.GetInt("level") > childCount)
         {
-            if(PlayerPrefs.GetInt("level") % 5 > childCount)
+            if (PlayerPrefs.GetInt("level") % 5 > childCount)
             {
                 obje = Instantiate(characterView[(int)(PlayerPrefs.GetInt("level")) / 5], Vector3.zero, Quaternion.identity);
             }
@@ -36,11 +59,5 @@ public class ActiveCharacter : MonoBehaviour
             obje.transform.parent = transform;
             obje.transform.localPosition = Vector3.zero;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

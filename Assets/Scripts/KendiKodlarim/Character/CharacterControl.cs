@@ -91,7 +91,7 @@ public class CharacterControl : MonoBehaviour
     public void RagdollAktif(float sayi)
     {
         anim.enabled = false;
-        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * Random.Range(1.98f, 2.02f));
+        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * 2/*Random.Range(1.98f, 2.02f)*/);
 
         if (kuvvet >= 77.25f)
         {
