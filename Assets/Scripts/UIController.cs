@@ -165,7 +165,21 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         WinPanel.SetActive(true);
         winScreenScoreText.text = "0";
+
         int sayac = 10;
+        /*if (GameController.instance.score <= 100)
+        {
+            sayac = 10;
+        }
+        else if (GameController.instance.score <= 1000)
+        {
+            sayac = 20;
+        }
+        else
+        {
+            sayac = 50;
+        }*/
+           
         while (sayac < GameController.instance.score)
         {
             sayac += PlayerController.instance.collectibleDegeri;

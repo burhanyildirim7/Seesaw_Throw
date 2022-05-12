@@ -26,7 +26,7 @@ public class ActiveCharacter : MonoBehaviour
     private void ActiveOurCharacter()
     {
         GameObject obje = Instantiate(characterView[(int)(PlayerPrefs.GetFloat("Strength") / 3)], transform.position, Quaternion.identity);
-        Debug.Log((int)(PlayerPrefs.GetFloat("Strength") / 3));
+       // Debug.Log((int)(PlayerPrefs.GetFloat("Strength") / 3));
 
         obje.transform.parent = transform;
         obje.transform.localPosition = Vector3.zero;
@@ -43,17 +43,28 @@ public class ActiveCharacter : MonoBehaviour
             }
         }
 
-        PlayerPrefs.SetInt("level", 5);
-
-        if (PlayerPrefs.GetInt("level") > childCount)
+        int levelNumber;
+        if (PlayerPrefs.GetInt("level") == 0)
         {
-            if (PlayerPrefs.GetInt("level") % 5 > childCount)
+            levelNumber = PlayerPrefs.GetInt("level") + 1;
+        }
+        else
+        {
+            levelNumber = PlayerPrefs.GetInt("level");
+        }
+        levelNumber = 5; //Bunu pasif yapman gerekli
+
+
+
+        if (levelNumber > childCount)
+        {
+            if (levelNumber % 5 > childCount)
             {
-                obje = Instantiate(characterView[(int)(PlayerPrefs.GetInt("level")) / 5], Vector3.zero, Quaternion.identity);
+                obje = Instantiate(characterView[(int)levelNumber / 5], Vector3.zero, Quaternion.identity);
             }
             else
             {
-                obje = Instantiate(characterView[(int)(PlayerPrefs.GetInt("level")) / 5 - 1], Vector3.zero, Quaternion.identity);
+                obje = Instantiate(characterView[(int)levelNumber / 5 - 1], Vector3.zero, Quaternion.identity);
             }
 
             obje.transform.parent = transform;

@@ -37,26 +37,11 @@ namespace RagdollSystem
                 }
                 else if (rigidbody.mass >= 2 && rigidbody.mass <= 5)
                 {
-                    rigidbody.velocity = Vector3.one * Random.Range(-2f, 2f);
+                    rigidbody.velocity = Vector3.one * Random.Range(-3f, 3f);
                 }
 
-                rigidbody.drag = .25f;
+                rigidbody.drag = .5f;
             }
         }
-
-      /*  public void ApplyForce()
-        {
-            foreach (var rigidbody in _rigidbodies)
-            {
-                if(rigidbody.transform.gameObject.GetComponent<CapsuleCollider>() != null)
-                {
-                    collider = rigidbody.transform.gameObject.GetComponent<CapsuleCollider>();
-                    collider.enabled = false;
-                    
-
-                }
-                rigidbody.useGravity = true;
-            }
-        }*/
     }
 }

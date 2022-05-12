@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 6322874648561840969}
   - component: {fileID: 6322874648561840968}
   - component: {fileID: 6322874648561841078}
-  - component: {fileID: 9033997096891087396}
+  - component: {fileID: 2829953738046661971}
   m_Layer: 0
   m_Name: head
   m_TagString: Head
@@ -904,7 +904,7 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &9033997096891087396
+--- !u!114 &2829953738046661971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -916,6 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a957b5517cca5499adf889348a03a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotaValue: 0.3
 --- !u!1 &2459932567866060609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1097,7 @@ GameObject:
   - component: {fileID: 6322874648485042401}
   - component: {fileID: 6322874648485042403}
   - component: {fileID: 6322874648485042400}
+  - component: {fileID: 294968549654862725}
   m_Layer: 0
   m_Name: spine_03
   m_TagString: Untagged
@@ -1196,6 +1198,19 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &294968549654862725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459932567866060613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a957b5517cca5499adf889348a03a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotaValue: 0
 --- !u!1 &2459932567866060615
 GameObject:
   m_ObjectHideFlags: 0

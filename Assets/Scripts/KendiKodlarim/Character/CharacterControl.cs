@@ -8,7 +8,7 @@ public class CharacterControl : MonoBehaviour
 {
 
     [Header("PosizyonDegisimAyarlari")]
-    public float kuvvet;  //Maksimum 30-40 olabilir
+    public float kuvvet;
     [SerializeField] private float kuvvetDegisim;
 
     [Header("AnimasyonAyarlari")]
@@ -82,7 +82,6 @@ public class CharacterControl : MonoBehaviour
 
             if (transform.position.y <= 2 && kuvvet < 0 && isJumping)
             {
-                //ragdoll.ApplyForce();
                 isJumping = false;
             }
         }
