@@ -82,7 +82,7 @@ public class CharacterControl : MonoBehaviour
 
             if (transform.position.y <= 2 && kuvvet < 0 && isJumping)
             {
-                ragdoll.ApplyForce();
+                //ragdoll.ApplyForce();
                 isJumping = false;
             }
         }

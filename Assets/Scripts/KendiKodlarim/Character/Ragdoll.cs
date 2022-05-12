@@ -39,11 +39,12 @@ namespace RagdollSystem
                 {
                     rigidbody.velocity = Vector3.one * Random.Range(-2f, 2f);
                 }
-                
+
+                rigidbody.drag = .25f;
             }
         }
 
-        public void ApplyForce()
+      /*  public void ApplyForce()
         {
             foreach (var rigidbody in _rigidbodies)
             {
@@ -51,9 +52,11 @@ namespace RagdollSystem
                 {
                     collider = rigidbody.transform.gameObject.GetComponent<CapsuleCollider>();
                     collider.enabled = false;
+                    
+
                 }
                 rigidbody.useGravity = true;
             }
-        }
+        }*/
     }
 }
