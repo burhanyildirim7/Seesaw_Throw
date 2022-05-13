@@ -27,10 +27,12 @@ public class HeadCharacter : MonoBehaviour
             {
                 CharacterControl characterControl = transform.GetComponentInParent<CharacterControl>();
                 rotaValue = characterControl.kuvvet / 500;
-                Debug.Log(rotaValue);
+                //Debug.Log(rotaValue);
+                GameObject parentObject = characterControl.transform.gameObject;
 
-                transform.DOMoveX(transform.position.x + Random.Range(-1f, 1f) * rotaValue, Random.Range(.75f, 2f)).SetLoops(500000, LoopType.Yoyo);
-                transform.DOMoveZ(transform.position.z + Random.Range(-1f, 1f) * rotaValue, Random.Range(.75f, 2f)).SetLoops(500000, LoopType.Yoyo);
+                parentObject.transform.DORotate((parentObject.transform.rotation.eulerAngles.x + Random.Range(-3, 3)) * Vector3.right, Random.Range(5f, 10f)).SetLoops(500000, LoopType.Yoyo);
+                transform.DOMoveX(transform.position.x + Random.Range(-1f, 1f) * rotaValue, Random.Range(1f, 3f)).SetLoops(500000, LoopType.Yoyo);
+                transform.DOMoveZ(transform.position.z + Random.Range(-1f, 1f) * rotaValue, Random.Range(1f, 3f)).SetLoops(500000, LoopType.Yoyo);
                 break;
             }
             yield return new WaitForSeconds(.1f);
