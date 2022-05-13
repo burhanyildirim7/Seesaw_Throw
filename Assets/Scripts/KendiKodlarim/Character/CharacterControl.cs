@@ -22,6 +22,9 @@ public class CharacterControl : MonoBehaviour
     private bool isJumping;
     private bool hasFallen;
     private bool hasBegan;
+    private bool isTarget;
+
+    private GameObject target;
 
     [SerializeField] private GameObject obj_indicator;
 
@@ -37,13 +40,18 @@ public class CharacterControl : MonoBehaviour
 
         hasBegan = false;
         StartCoroutine(StartControl());
+
+        if (transform.parent.transform.parent.transform.gameObject != transform.gameObject)
+        {
+            target = transform.parent.transform.parent.transform.GetChild(0).transform.GetChild(0).gameObject;
+        }
     }
 
     private IEnumerator StartControl()
     {
-        while(true)
+        while (true)
         {
-            if(GameController.instance.isContinue)
+            if (GameController.instance.isContinue)
             {
                 hasBegan = true;
                 break;
@@ -99,5 +107,20 @@ public class CharacterControl : MonoBehaviour
 
         isJumping = true;
         ragdoll.LaunchingCharacter();
+    }
+
+    void Update()
+    {
+      /*  if (isJumping && target != null)
+        {
+            if (Vector3.Distance(target.transform.position, transform.position) >= 2f)
+            {
+                transform.Translate((target.transform.position - transform.position) * Time.deltaTime * 5f);
+            }
+        }
+        else if (target == null)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * 1.5f);
+        }*/
     }
 }
