@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RagdollSystem;
 using IndicatorSystem;
+using AnimatorSystem;
+using RotateSystem;
+
 
 public class CharacterControl : MonoBehaviour
 {
@@ -11,13 +13,14 @@ public class CharacterControl : MonoBehaviour
     public float kuvvet;
     [SerializeField] private float kuvvetDegisim;
 
-    [Header("AnimasyonAyarlari")]
-    private Animator anim;
-
-    [Header("nameSpaceKullanimlari")]
-    private Ragdoll ragdoll;
+    [Header("namespaceKullanimlari")]
     private Indicator indicator;
+    private AnimControl animControl;
+    private RotateControl rotateControl;
 
+    [Header("CarpismaAyarlari")]
+    private SphereCollider collider;
+    private CapsuleCollider capsuleCollider;
 
     private bool isJumping;
     private bool hasFallen;
@@ -31,9 +34,12 @@ public class CharacterControl : MonoBehaviour
 
     void Start()
     {
-        anim = transform.GetChild(0).GetComponent<Animator>();
-        ragdoll = new Ragdoll(transform);
         indicator = new Indicator(transform);
+        animControl = new AnimControl(transform);
+        rotateControl = new RotateControl(transform);
+
+        collider = GetComponent<SphereCollider>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
 
         isJumping = false;
         hasFallen = false;
@@ -66,7 +72,7 @@ public class CharacterControl : MonoBehaviour
         {
             if (isJumping)
             {
-                transform.Translate(Vector3.up * Time.deltaTime * kuvvet);
+                transform.Translate(Vector3.up * Time.deltaTime * kuvvet, Space.World);
                 if (kuvvet >= 0)
                 {
                     kuvvetDegisim = Mathf.Abs(kuvvet) / 7;
@@ -85,6 +91,7 @@ public class CharacterControl : MonoBehaviour
                     hasFallen = true;
                 }
 
+                rotateControl.RotateCharacter();
                 kuvvet = kuvvet - (12 - kuvvetDegisim) * Time.deltaTime;
             }
 
@@ -97,7 +104,8 @@ public class CharacterControl : MonoBehaviour
 
     public void RagdollAktif(float sayi)
     {
-        anim.enabled = false;
+        collider.enabled = true;
+        capsuleCollider.enabled = false;
         kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * 2/*Random.Range(1.98f, 2.02f)*/);
 
         if (kuvvet >= 77.25f)
@@ -106,21 +114,15 @@ public class CharacterControl : MonoBehaviour
         }
 
         isJumping = true;
-        ragdoll.LaunchingCharacter();
+        StartCoroutine(AnimControl());
     }
 
-    void Update()
+    private IEnumerator AnimControl()
     {
-      /*  if (isJumping && target != null)
+        while (true)
         {
-            if (Vector3.Distance(target.transform.position, transform.position) >= 2f)
-            {
-                transform.Translate((target.transform.position - transform.position) * Time.deltaTime * 5f);
-            }
+            animControl.ChangeAnim();
+            yield return new WaitForSeconds(.1f);
         }
-        else if (target == null)
-        {
-            transform.Translate(Vector3.up * Time.deltaTime * 1.5f);
-        }*/
     }
 }
