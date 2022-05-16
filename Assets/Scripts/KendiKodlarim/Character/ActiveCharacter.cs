@@ -60,11 +60,11 @@ public class ActiveCharacter : MonoBehaviour
         {
             if (levelNumber % 5 > childCount)
             {
-                obje = Instantiate(characterView[(int)levelNumber / 5], Vector3.zero, Quaternion.identity);
+                obje = Instantiate(characterView[(int)levelNumber / 5], Vector3.zero, Quaternion.Euler(Vector3.up * 180));
             }
             else
             {
-                obje = Instantiate(characterView[(int)levelNumber / 5 - 1], Vector3.zero, Quaternion.identity);
+                obje = Instantiate(characterView[(int)levelNumber / 5 - 1], Vector3.zero, Quaternion.Euler(Vector3.up * 180));
             }
 
             obje.transform.parent = transform;

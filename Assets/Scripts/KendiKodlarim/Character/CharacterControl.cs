@@ -21,6 +21,7 @@ public class CharacterControl : MonoBehaviour
     [Header("CarpismaAyarlari")]
     private SphereCollider collider;
     private CapsuleCollider capsuleCollider;
+    private Rigidbody rigidbody;
 
     private bool isJumping;
     private bool hasFallen;
@@ -40,6 +41,7 @@ public class CharacterControl : MonoBehaviour
 
         collider = GetComponent<SphereCollider>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        rigidbody = GetComponent<Rigidbody>();
 
         isJumping = false;
         hasFallen = false;
@@ -104,6 +106,7 @@ public class CharacterControl : MonoBehaviour
 
     public void RagdollAktif(float sayi)
     {
+        rigidbody.isKinematic = false;
         collider.enabled = true;
         capsuleCollider.enabled = false;
         kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * 2/*Random.Range(1.98f, 2.02f)*/);
