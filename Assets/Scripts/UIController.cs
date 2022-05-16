@@ -25,11 +25,17 @@ public class UIController : MonoBehaviour
     private string itemName;//Bir butona 2 tane degisken verilemedigi icin boyle bir sisteme ihtiyac vardir
     [SerializeField] private Text strengthPrice;
     [SerializeField] private Text incomePrice;
-     
+    [SerializeField] private Text hammerPrice;
+
+    
+
 
     // singleton yapisi burada kuruluyor.
     private void Awake()
     {
+        Time.timeScale = 2;
+
+
         if (instance == null) instance = this;
         //else Destroy(this);
 
@@ -288,8 +294,14 @@ public class UIController : MonoBehaviour
     //Kendi olusturdugum UI lar burdan sonrasidir
     private void ShowPrice()
     {
+        if(PlayerPrefs.GetInt("totalScore") <= 1000)
+        {
+            PlayerPrefs.SetInt("totalScore", 5000000);
+        }
+        
         strengthPrice.text = upgrade.ShowPrice("Strength").ToString();
         incomePrice.text = upgrade.ShowPrice("Income").ToString();
+        hammerPrice.text = upgrade.ShowPrice("Hammer").ToString();
         tapToStartScoreText.text = PlayerPrefs.GetInt("totalScore").ToString();
     }
 
