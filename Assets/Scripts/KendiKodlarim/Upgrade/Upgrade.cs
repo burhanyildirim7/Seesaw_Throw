@@ -23,7 +23,7 @@ namespace UpgradeSystem
             activeCharacter = GameObject.FindObjectsOfType<ActiveCharacter>(); // ("ActiveCharacter").transform.GetComponent<ActiveCharacter>();
 
 
-            if (PlayerPrefs.GetInt("totalScore") >= (PlayerPrefs.GetFloat(name) + 1) * 500)
+            if (PlayerPrefs.GetInt("totalScore") >= (PlayerPrefs.GetFloat(name) + 1) * 10)
             {
                 PlayerPrefs.SetFloat(name, PlayerPrefs.GetFloat(name) + 1);
 
@@ -33,13 +33,13 @@ namespace UpgradeSystem
                     activeCharacter[i].Upload();
                 }
 
-                PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - (int)PlayerPrefs.GetFloat(name) * 500);
+                PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - (int)PlayerPrefs.GetFloat(name) * 10);
             }
         }
 
         public float ShowPrice(string name)
         {
-            return (PlayerPrefs.GetFloat(name) * 500 + 500);
+            return (PlayerPrefs.GetFloat(name) * 10 + 10);
         }
     }
 }

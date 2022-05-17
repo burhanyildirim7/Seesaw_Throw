@@ -19196,7 +19196,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3595741650643979121}
   - component: {fileID: 8434299764678032405}
-  - component: {fileID: 9094713532532234481}
   m_Layer: 0
   m_Name: 4
   m_TagString: Hammer
@@ -19236,23 +19235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hammerEfect: {fileID: 1152038530165230046, guid: 835c9164f5fca5f4c8dce77c10403cbb, type: 3}
   effecTransform: {fileID: 212698646277956469}
---- !u!111 &9094713532532234481
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7399328172412390618}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: 2e7e8c3440e02d54cb81b7bb5e58ff12, type: 2}
-  - {fileID: 7400000, guid: 5d92b72852613fe449d3b9432b25aa37, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &7797630995084788627
 GameObject:
   m_ObjectHideFlags: 0
@@ -19277,7 +19259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7797630995084788627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.674, y: -5.94, z: 0}
+  m_LocalPosition: {x: 0.053, y: -3.41, z: 7.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
