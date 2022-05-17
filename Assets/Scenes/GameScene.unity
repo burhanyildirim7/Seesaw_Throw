@@ -1968,7 +1968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6826d214a2b9d40ab90568c700cf2ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: -1, y: 5, z: -15}
+  offset: {x: -1.5, y: 5, z: -15}
   target: {fileID: 0}
   isMoving: 0
   tergetSpeedCam: 2
@@ -17411,15 +17411,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7548131106341995797, guid: ce36a4e86f116e9408899d7238c3f223, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21
+      value: 21.008
       objectReference: {fileID: 0}
     - target: {fileID: 7548131106341995797, guid: ce36a4e86f116e9408899d7238c3f223, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.000080036
       objectReference: {fileID: 0}
     - target: {fileID: 7548131106341995797, guid: ce36a4e86f116e9408899d7238c3f223, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.16
+      value: 1.1601
       objectReference: {fileID: 0}
     - target: {fileID: 7548131106341995797, guid: ce36a4e86f116e9408899d7238c3f223, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17832,7 +17832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5405377612101774651, guid: 8bc0dd976e581d04286847a7c235fa78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -155.52728
       objectReference: {fileID: 0}
     - target: {fileID: 5405377612101774651, guid: 8bc0dd976e581d04286847a7c235fa78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -17840,7 +17840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5405377612101774651, guid: 8bc0dd976e581d04286847a7c235fa78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -6.576
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bc0dd976e581d04286847a7c235fa78, type: 3}
