@@ -17,10 +17,11 @@ public class ActiveHammer : MonoBehaviour
 
     public void Upload()
     {
-        if(PlayerPrefs.GetInt("Hammer") % 5 == 0)
+        //Debug.Log(PlayerPrefs.GetFloat("Hammer"));
+        if(PlayerPrefs.GetFloat("Hammer") % 5 == 0)
         {
             Destroy(activeHammer);
-            activeHammer = Instantiate(hammers[(int)(PlayerPrefs.GetInt("Hammer") / 5)], transform.position, Quaternion.identity);
+            activeHammer = Instantiate(hammers[(int)(PlayerPrefs.GetFloat("Hammer") / 5)], transform.position, Quaternion.identity);
             activeHammer.transform.parent = transform;
         }
     }

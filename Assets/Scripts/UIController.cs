@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 {
     public static UIController instance; // Singleton yapisi icin gerekli ornek
 
-    public GameObject PurchasePanel,TapToStartPanel, LoosePanel, GamePanel, WinPanel, winScreenEffectObject, winScreenCoinImage, startScreenCoinImage, scoreEffect;
+    public GameObject PurchasePanel, TapToStartPanel, LoosePanel, GamePanel, WinPanel, winScreenEffectObject, winScreenCoinImage, startScreenCoinImage, scoreEffect;
     public Text gamePlayScoreText, winScreenScoreText, levelNoText, tapToStartScoreText, totalElmasText;
     public Animator ScoreTextAnim;
 
@@ -26,14 +26,16 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text strengthPrice;
     [SerializeField] private Text incomePrice;
     [SerializeField] private Text hammerPrice;
+    [SerializeField] private Text strengthLevel;
+    [SerializeField] private Text incomeLevel;
+    [SerializeField] private Text hammerLevel;
 
-    
 
 
     // singleton yapisi burada kuruluyor.
     private void Awake()
     {
-        Time.timeScale = 2;
+     //   Time.timeScale = 2;
 
 
         if (instance == null) instance = this;
@@ -52,6 +54,7 @@ public class UIController : MonoBehaviour
 
     private void StartingEvents()
     {
+        ShowLevel();
         ShowPrice();
         forceController = GameObject.FindObjectOfType<ForceController>();
     }
@@ -99,7 +102,7 @@ public class UIController : MonoBehaviour
         LevelController.instance.RestartLevelEvents();
         SetTapToStartScoreText();
 
-        
+
         cameraMovement.StartingEvents();
         GameController.instance.ScoreCarp();
         tapToStartScoreText.text = PlayerPrefs.GetInt("totalScore").ToString();
@@ -185,7 +188,7 @@ public class UIController : MonoBehaviour
         {
             sayac = 50;
         }*/
-           
+
         while (sayac < GameController.instance.score)
         {
             sayac += PlayerController.instance.collectibleDegeri;
@@ -294,15 +297,22 @@ public class UIController : MonoBehaviour
     //Kendi olusturdugum UI lar burdan sonrasidir
     private void ShowPrice()
     {
-        if(PlayerPrefs.GetInt("totalScore") <= 1000)
+        if (PlayerPrefs.GetInt("totalScore") <= 1000)
         {
             PlayerPrefs.SetInt("totalScore", 5000000);
         }
-        
+
         strengthPrice.text = upgrade.ShowPrice("Strength").ToString();
         incomePrice.text = upgrade.ShowPrice("Income").ToString();
         hammerPrice.text = upgrade.ShowPrice("Hammer").ToString();
         tapToStartScoreText.text = PlayerPrefs.GetInt("totalScore").ToString();
+    }
+
+    private void ShowLevel()
+    {
+        strengthLevel.text = "Lv " + (PlayerPrefs.GetFloat("Strength") + 1).ToString();
+        incomeLevel.text = "Lv " + (PlayerPrefs.GetFloat("Income") + 1).ToString();
+        hammerLevel.text = "Lv " + (PlayerPrefs.GetFloat("Hammer") + 1).ToString();
     }
 
     public void ImplyForce()
@@ -325,6 +335,7 @@ public class UIController : MonoBehaviour
     {
         upgrade.Purchase(itemName, amount);
         ShowPrice();
+        ShowLevel();
     }
 
 }

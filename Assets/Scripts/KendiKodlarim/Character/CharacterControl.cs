@@ -31,6 +31,7 @@ public class CharacterControl : MonoBehaviour
     private GameObject target;
 
     [SerializeField] private GameObject obj_indicator;
+    private Transform camera;
 
 
     void Start()
@@ -53,6 +54,8 @@ public class CharacterControl : MonoBehaviour
         {
             target = transform.parent.transform.parent.transform.GetChild(0).transform.GetChild(0).gameObject;
         }
+
+        camera = GameObject.FindObjectOfType<CameraMovement>().transform;
     }
 
     private IEnumerator StartControl()
@@ -84,7 +87,9 @@ public class CharacterControl : MonoBehaviour
                     if (transform.parent.transform.gameObject == transform.parent.transform.parent.transform.GetChild(0).transform.gameObject)
                     {
                         GameController.instance.isContinue = false;
-                        indicator.CreateIndicator(obj_indicator);
+
+                        GameObject obje = Instantiate(obj_indicator, Vector3.up * transform.position.y + Vector3.forward * 3 + Vector3.right * camera.position.x, Quaternion.identity);
+                        indicator.CreateIndicator(obje);
                     }
 
                     GameController.instance.SetScore((int)(transform.position.y * (10 + PlayerPrefs.GetFloat("Income"))));
@@ -109,7 +114,7 @@ public class CharacterControl : MonoBehaviour
         rigidbody.isKinematic = false;
         collider.enabled = true;
         capsuleCollider.enabled = false;
-        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * 2/*Random.Range(1.98f, 2.02f)*/);
+        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * (1 + PlayerPrefs.GetFloat("Hammer") * .1f) * 2/*Random.Range(1.98f, 2.02f)*/);
 
         if (kuvvet >= 77.25f)
         {

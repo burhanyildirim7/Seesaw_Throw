@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AnimatorSystem
 {
-    public class AnimControl : MonoBehaviour
+    public class AnimControl
     {
         private Transform _transform;
         private Animator anim;

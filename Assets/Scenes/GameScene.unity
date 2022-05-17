@@ -1853,6 +1853,9 @@ MonoBehaviour:
   strengthPrice: {fileID: 1780870689}
   incomePrice: {fileID: 8663311}
   hammerPrice: {fileID: 275655486}
+  strengthLevel: {fileID: 0}
+  incomeLevel: {fileID: 0}
+  hammerLevel: {fileID: 0}
 --- !u!4 &955729543
 Transform:
   m_ObjectHideFlags: 0
