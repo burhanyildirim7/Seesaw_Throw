@@ -66,7 +66,7 @@ public class ActiveCharacter : MonoBehaviour
         //Debug.Log(levelNumber);
         //levelNumber = 5; //Bunu pasif yapman gerekli
 
-
+        levelNumber *= .125f;
 
         if (levelNumber > childCount)
         {

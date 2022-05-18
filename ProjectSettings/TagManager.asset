@@ -16,6 +16,7 @@ TagManager:
   - Missile
   - Object
   - ActiveCharacter
+  - Tahterevalli
   layers:
   - Default
   - TransparentFX
