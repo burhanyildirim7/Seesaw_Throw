@@ -6847,6 +6847,8 @@ MonoBehaviour:
   - {fileID: 4552236648376962662, guid: eb1ae3290c5bdd14e9f0861220b94b92, type: 3}
   - {fileID: 9164557042198428848, guid: 296867d41e01c4942b97e73c3bbb66f6, type: 3}
   - {fileID: 5062702515233682662, guid: 59e3e2cf40211d443bdc9386c0197995, type: 3}
+  hammerEfect: {fileID: 0}
+  effecTransform: {fileID: 0}
 --- !u!1 &8759251218739985790
 GameObject:
   m_ObjectHideFlags: 0
