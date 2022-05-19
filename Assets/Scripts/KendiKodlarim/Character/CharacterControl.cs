@@ -102,7 +102,7 @@ public class CharacterControl : MonoBehaviour
                 kuvvet = kuvvet - (12 - kuvvetDegisim) * Time.deltaTime;
             }
 
-            if (transform.position.y <= 2 && kuvvet < 0 && isJumping)
+            if (transform.position.y <= .1f && kuvvet < 0 && isJumping)
             {
                 isJumping = false;
             }
@@ -114,7 +114,7 @@ public class CharacterControl : MonoBehaviour
         rigidbody.isKinematic = false;
         collider.enabled = true;
         capsuleCollider.enabled = false;
-        kuvvet = 12 + sayi * (12 + PlayerPrefs.GetFloat("Strength") * (1 + PlayerPrefs.GetFloat("Hammer") * .1f) * 2/*Random.Range(1.98f, 2.02f)*/);
+        kuvvet = 11 + sayi * (10 + PlayerPrefs.GetFloat("Strength") * (1 + PlayerPrefs.GetFloat("Hammer") * .1f) * 2/*Random.Range(1.98f, 2.02f)*/);
 
         if (kuvvet >= 77.25f)
         {
