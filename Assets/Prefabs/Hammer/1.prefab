@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4315570918955571768}
-  - component: {fileID: 6915034670283030296}
   m_Layer: 0
   m_Name: 1
   m_TagString: Hammer
@@ -35,20 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6915034670283030296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103612673641113652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4e5a513173a0e4a9265ba09c7372cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hammerEfect: {fileID: 1152038530165230046, guid: 835c9164f5fca5f4c8dce77c10403cbb, type: 3}
-  effecTransform: {fileID: 4201427864343661595}
 --- !u!1 &1849959501529987465
 GameObject:
   m_ObjectHideFlags: 0

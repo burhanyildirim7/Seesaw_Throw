@@ -28,7 +28,7 @@ public class HammerCharacter : MonoBehaviour
 
         obje = Instantiate(characters[(int)(PlayerPrefs.GetFloat("Strength") / 5)], transform.position, Quaternion.Euler(-Vector3.up * 90));
         obje.transform.parent = transform;
-        animHammer = new AnimHammer(transform);
+       // animHammer = new AnimHammer(transform);
     }
 
     public void Upload() //Sadece sekil degistirmek icin kullanilir
@@ -38,7 +38,7 @@ public class HammerCharacter : MonoBehaviour
             Destroy(obje);
             obje = Instantiate(characters[(int)(PlayerPrefs.GetFloat("Strength") / 5)], transform.position, Quaternion.Euler(-Vector3.up * 90));
             obje.transform.parent = transform;
-            animHammer = new AnimHammer(transform);
+            //animHammer = new AnimHammer(transform);
         }
     }
 
@@ -46,7 +46,7 @@ public class HammerCharacter : MonoBehaviour
     public void ForceMessage(float sayi)
     {
         kuvvetSayisi = sayi;
-
+        animHammer = new AnimHammer(transform);
 
         if (kuvvetSayisi <= .8f)
         {
