@@ -546,6 +546,7 @@ Transform:
   m_Children:
   - {fileID: 4198286938189193761}
   - {fileID: 5069016905504238913}
+  - {fileID: 8324545967656888914}
   m_Father: {fileID: 4918585784483493250}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1400,6 +1401,59 @@ Transform:
   m_Father: {fileID: 5305880299133397627}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5740062149536182212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8324545967656888914}
+  - component: {fileID: 5753514213262158401}
+  m_Layer: 0
+  m_Name: ActiveHammer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8324545967656888914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5740062149536182212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00168, y: -0.00053, z: -0.00121}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8112287658122245548}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5753514213262158401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5740062149536182212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b48c09ac7faa5a43b277cdff8df0443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hammers:
+  - {fileID: 103612673641113652, guid: 70c8e478ad0b68a4e861f0cb481bd643, type: 3}
+  - {fileID: 6028642720345180810, guid: c19f00d4e4807f041a1175be8e735e3a, type: 3}
+  - {fileID: 7134984836850200137, guid: 2811f21817675ed47856932486934e92, type: 3}
+  - {fileID: 7399328172412390618, guid: c22f17f4abb422c4581f343374091cd0, type: 3}
+  - {fileID: 3600520339957512752, guid: ceb2f3970762d914c9af855324afc266, type: 3}
+  - {fileID: 4647952419826439281, guid: 03d704bec92bafd46b8ce6aa222485b0, type: 3}
+  - {fileID: 2448300842314834314, guid: 8bc0dd976e581d04286847a7c235fa78, type: 3}
+  - {fileID: 4827185596381263575, guid: ce36a4e86f116e9408899d7238c3f223, type: 3}
 --- !u!1 &5907332887320042257
 GameObject:
   m_ObjectHideFlags: 0

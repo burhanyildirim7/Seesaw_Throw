@@ -19,6 +19,7 @@ namespace AnimatorSystem
 
         public void ChangeAnim()
         {
+            _transform.gameObject.GetComponent<Animator>().enabled = false;
             sayi = Random.Range(1, 4);
             anim.SetInteger("AnimNumber", sayi);
         }

@@ -28,7 +28,7 @@ public class HammerCharacter : MonoBehaviour
 
         obje = Instantiate(characters[(int)(PlayerPrefs.GetFloat("Strength") / 5)], transform.position, Quaternion.Euler(-Vector3.up * 90));
         obje.transform.parent = transform;
-       // animHammer = new AnimHammer(transform);
+        // animHammer = new AnimHammer(transform);
     }
 
     public void Upload() //Sadece sekil degistirmek icin kullanilir
@@ -51,12 +51,12 @@ public class HammerCharacter : MonoBehaviour
         if (kuvvetSayisi <= .8f)
         {
             animHammer.Anim1Uygula();
-            StartCoroutine(DelayForce(.5f));
+            StartCoroutine(DelayForce(.9f));
         }
         else if (kuvvetSayisi > .8f)
         {
             animHammer.Anim2Uygula();
-            StartCoroutine(DelayForce(.25f));
+            StartCoroutine(DelayForce(1.5f));
         }
     }
 

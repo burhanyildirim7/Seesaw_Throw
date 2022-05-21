@@ -24,24 +24,32 @@ namespace UpgradeSystem
             activeCharacter = GameObject.FindObjectsOfType<ActiveCharacter>(); // ("ActiveCharacter").transform.GetComponent<ActiveCharacter>();
             hammerCharacter = GameObject.FindObjectOfType<HammerCharacter>();
 
-            if (PlayerPrefs.GetInt("totalScore") >= (PlayerPrefs.GetFloat(name) + 1) * 10)
+            if ((PlayerPrefs.GetFloat(name) + 1) < 99)
             {
-                PlayerPrefs.SetFloat(name, PlayerPrefs.GetFloat(name) + 1);
-
-                activeHammer.Upload();
-                hammerCharacter.Upload();
-                for (int i = 0; i < activeCharacter.Length; i++)
+                if (PlayerPrefs.GetInt("totalScore") >= (PlayerPrefs.GetFloat(name) + 1) * 10)
                 {
-                    activeCharacter[i].Upload();
-                }
+                    PlayerPrefs.SetFloat(name, PlayerPrefs.GetFloat(name) + 1);
 
-                PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - (int)PlayerPrefs.GetFloat(name) * 10);
+                    activeHammer.Upload();
+                    hammerCharacter.Upload();
+                    for (int i = 0; i < activeCharacter.Length; i++)
+                    {
+                        activeCharacter[i].Upload();
+                    }
+
+                    PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - (int)PlayerPrefs.GetFloat(name) * 10);
+                }
             }
+            else
+            {
+
+            }
+
         }
 
         public float ShowPrice(string name)
         {
-            return (PlayerPrefs.GetFloat(name) * 10 + 10);
+            return (PlayerPrefs.GetFloat(name) * 25 + 50);
         }
     }
 }
