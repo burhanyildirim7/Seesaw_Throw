@@ -70,9 +70,15 @@ public class HammerCharacter : MonoBehaviour
     {
         //    Instantiate(hammerEfect, effecTransform.position, Quaternion.identity);
 
-        Animation anim = GameObject.FindWithTag("Tahterevalli").GetComponent<Animation>();
 
-        anim.Play("Tahterevalli");
+
+        Animator anim = GameObject.FindWithTag("Tahterevalli").GetComponent<Animator>();
+
+        Debug.Log(anim.name);
+
+        anim.SetBool("Zipla", true);
+
+        Invoke("AnimDurdur", 0.5f);
 
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < player.Length; i++)
@@ -81,6 +87,12 @@ public class HammerCharacter : MonoBehaviour
         }
 
         StartCoroutine(DelaySending());
+    }
+
+    private void AnimDurdur()
+    {
+        Animator anim = GameObject.FindWithTag("Tahterevalli").GetComponent<Animator>();
+        anim.SetBool("Zipla", false);
     }
 
     IEnumerator DelaySending()

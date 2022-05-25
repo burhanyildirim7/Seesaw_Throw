@@ -35,7 +35,7 @@ public class UIController : MonoBehaviour
     // singleton yapisi burada kuruluyor.
     private void Awake()
     {
-     //   Time.timeScale = 2;
+        //   Time.timeScale = 2;
 
 
         if (instance == null) instance = this;
@@ -299,7 +299,7 @@ public class UIController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("totalScore") <= 1000)
         {
-            PlayerPrefs.SetInt("totalScore", 5000000);
+            //PlayerPrefs.SetInt("totalScore", 5000000);
         }
 
         strengthPrice.text = upgrade.ShowPrice("Strength").ToString();
