@@ -74,7 +74,7 @@ public class HammerCharacter : MonoBehaviour
 
         Animator anim = GameObject.FindWithTag("Tahterevalli").GetComponent<Animator>();
 
-        Debug.Log(anim.name);
+        //Debug.Log(anim.name);
 
         anim.SetBool("Zipla", true);
 
