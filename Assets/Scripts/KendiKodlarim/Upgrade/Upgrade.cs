@@ -26,8 +26,10 @@ namespace UpgradeSystem
 
             if ((PlayerPrefs.GetFloat(name) + 1) < 99)
             {
-                if (PlayerPrefs.GetInt("totalScore") >= (PlayerPrefs.GetFloat(name) + 1) * 10)
+                if (PlayerPrefs.GetInt("totalScore") >= PlayerPrefs.GetFloat(name) * 25 + 50)
                 {
+                    PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - ((int)PlayerPrefs.GetFloat(name) * 25 + 50));
+
                     PlayerPrefs.SetFloat(name, PlayerPrefs.GetFloat(name) + 1);
 
                     activeHammer.Upload();
@@ -36,8 +38,6 @@ namespace UpgradeSystem
                     {
                         activeCharacter[i].Upload();
                     }
-
-                    PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - (int)PlayerPrefs.GetFloat(name) * 10);
                 }
             }
             else

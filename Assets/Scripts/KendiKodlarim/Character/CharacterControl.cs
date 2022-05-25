@@ -92,7 +92,7 @@ public class CharacterControl : MonoBehaviour
                         indicator.CreateIndicator(obje);
                     }
 
-                    GameController.instance.SetScore((int)(transform.position.y * (2 + PlayerPrefs.GetFloat("Income") * .5f)));
+                    GameController.instance.SetScore((int)(transform.position.y * (3.5f + PlayerPrefs.GetFloat("Income") * 1f)));
 
                     kuvvetDegisim = 0;
                     hasFallen = true;
@@ -114,7 +114,11 @@ public class CharacterControl : MonoBehaviour
         rigidbody.isKinematic = false;
         collider.enabled = true;
         capsuleCollider.enabled = false;
-        kuvvet = 11 + sayi * (5 + PlayerPrefs.GetFloat("Strength") * (1 + PlayerPrefs.GetFloat("Hammer") * .1f)/*Random.Range(1.98f, 2.02f)*/);
+
+        float karakterinKuvveti;
+        karakterinKuvveti = 3 + (PlayerPrefs.GetFloat("Strength") + 1) + (1 + PlayerPrefs.GetFloat("Hammer"));
+
+        kuvvet = 10 + (sayi * (karakterinKuvveti) * 1.1f + karakterinKuvveti * .4f);
 
         if (kuvvet >= 77.25f)
         {

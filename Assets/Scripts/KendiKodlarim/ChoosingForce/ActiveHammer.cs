@@ -13,28 +13,21 @@ public class ActiveHammer : MonoBehaviour
     {
         if ((int)(PlayerPrefs.GetFloat("Hammer") / 5) <= 7)
         {
-            //Time.timeScale = 2;
             activeHammer = Instantiate(hammers[(int)(PlayerPrefs.GetFloat("Hammer") / 5)], transform.position, Quaternion.Euler(Vector3.up * -90));
             activeHammer.transform.parent = transform;
-            //activeHammer.transform.localRotation = Quaternion.Euler(new Vector3(-7.5f, 4f, -130f));
             activeHammer.transform.localRotation = Quaternion.Euler(new Vector3(0, 60f, 150f));
-            // activeHammer.transform.localPosition = Vector3.right * .02f + Vector3.up * -.6f + Vector3.forward * 4.453f;
         }
         else
         {
-            //Time.timeScale = 2;
             activeHammer = Instantiate(hammers[7], transform.position, Quaternion.Euler(Vector3.up * -90));
             activeHammer.transform.parent = transform;
-            //activeHammer.transform.localRotation = Quaternion.Euler(new Vector3(-7.5f, 4f, -130f));
             activeHammer.transform.localRotation = Quaternion.Euler(new Vector3(0, 60f, 150f));
-            // activeHammer.transform.localPosition = Vector3.right * .02f + Vector3.up * -.6f + Vector3.forward * 4.453f;
         }
 
     }
 
     public void Upload()
     {
-        //Debug.Log(PlayerPrefs.GetFloat("Hammer"));
         if (PlayerPrefs.GetFloat("Hammer") % 5 == 0)
         {
             if ((int)(PlayerPrefs.GetFloat("Hammer") / 5) < 7)
@@ -42,13 +35,7 @@ public class ActiveHammer : MonoBehaviour
                 Destroy(activeHammer);
                 activeHammer = Instantiate(hammers[(int)(PlayerPrefs.GetFloat("Hammer") / 5)], transform.position, Quaternion.Euler(Vector3.up * -90));
                 activeHammer.transform.parent = transform;
-                //activeHammer.transform.localRotation = Quaternion.Euler(new Vector3(-7.5f, 4f, -130f));
                 activeHammer.transform.localRotation = Quaternion.Euler(new Vector3(0, 60f, 150f));
-                //  activeHammer.transform.localPosition = Vector3.right * .02f + Vector3.up * -.6f + Vector3.forward * 4.453f;
-            }
-            else
-            {
-
             }
         }
     }
