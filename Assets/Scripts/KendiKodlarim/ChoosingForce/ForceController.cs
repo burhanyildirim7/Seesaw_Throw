@@ -20,7 +20,7 @@ public class ForceController : MonoBehaviour
     {
         if(GameController.instance.isContinue)
         {
-            uIController.ShowForceIndicator(Mathf.Sin(Time.time * speedIndicator) * 50);
+            uIController.ShowForceIndicator(Mathf.Sin(Time.time * speedIndicator) * 490);
         }
     }
 

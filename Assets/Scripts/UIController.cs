@@ -323,7 +323,8 @@ public class UIController : MonoBehaviour
 
     public void ShowForceIndicator(float eksenY)
     {
-        indicator.transform.localPosition = Vector3.right * 155 + Vector3.up * eksenY;
+        //indicator.transform.localPosition = Vector3.right * 155 + Vector3.up * eksenY;
+        indicator.transform.localPosition = Vector3.right * eksenY;
     }
 
     public void PurchaseSendMessage(string name)
