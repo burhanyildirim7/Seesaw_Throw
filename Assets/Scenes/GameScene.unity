@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd91887c7e2fa48528efffd028291d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectibleDegeri: 20
+  collectibleDegeri: 1
   xVarMi: 1
   collectibleVarMi: 1
 --- !u!54 &1443049515
