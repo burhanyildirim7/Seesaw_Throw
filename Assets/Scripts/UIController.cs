@@ -187,6 +187,7 @@ public class UIController : MonoBehaviour
         else
         {
             sayac = 50;
+        
         }*/
 
         while (sayac < GameController.instance.score)

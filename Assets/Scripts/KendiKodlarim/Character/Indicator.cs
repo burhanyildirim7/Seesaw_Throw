@@ -24,6 +24,10 @@ namespace IndicatorSystem
 
             Text text = obje.transform.GetChild(1).transform.GetChild(1).transform.GetComponent<Text>();
             text.text = ((int)_transform.position.y).ToString();
+
+            MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+
+            Debug.Log("Oyun Sonu Titreşim Çalıştı");
         }
 
 

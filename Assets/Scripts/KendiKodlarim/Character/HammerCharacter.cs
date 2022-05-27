@@ -87,6 +87,10 @@ public class HammerCharacter : MonoBehaviour
         }
 
         StartCoroutine(DelaySending());
+
+        MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+
+        Debug.Log("Oyun Basi Titreşim Çalıştı");
     }
 
     private void AnimDurdur()
