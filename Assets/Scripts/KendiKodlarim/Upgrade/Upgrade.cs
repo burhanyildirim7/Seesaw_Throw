@@ -26,9 +26,9 @@ namespace UpgradeSystem
 
             if ((PlayerPrefs.GetFloat(name) + 1) < 99)
             {
-                if (PlayerPrefs.GetInt("totalScore") >= PlayerPrefs.GetFloat(name) * 25 + 50)
+                if (PlayerPrefs.GetInt("totalScore") >= PlayerPrefs.GetFloat(name) * PlayerPrefs.GetFloat(name) * 25 + (50* (PlayerPrefs.GetFloat(name)+1)))
                 {
-                    PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - ((int)PlayerPrefs.GetFloat(name) * 25 + 50));
+                    PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") - ((int)PlayerPrefs.GetFloat(name) * (int)PlayerPrefs.GetFloat(name)* 25 + (50* ((int)PlayerPrefs.GetFloat(name)+1))));
 
                     PlayerPrefs.SetFloat(name, PlayerPrefs.GetFloat(name) + 1);
 
@@ -49,7 +49,7 @@ namespace UpgradeSystem
 
         public float ShowPrice(string name)
         {
-            return (PlayerPrefs.GetFloat(name) * 25 + 50);
+            return (PlayerPrefs.GetFloat(name) * PlayerPrefs.GetFloat(name)* 25 + (50*(PlayerPrefs.GetFloat(name)+1)));
         }
     }
 }

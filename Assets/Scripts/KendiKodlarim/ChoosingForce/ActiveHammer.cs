@@ -11,7 +11,7 @@ public class ActiveHammer : MonoBehaviour
 
     void Start()
     {
-        if ((int)(PlayerPrefs.GetFloat("Hammer") / 5) <= 7)
+        if ((int)(PlayerPrefs.GetFloat("Hammer") / 5) <= 13)
         {
             activeHammer = Instantiate(hammers[(int)(PlayerPrefs.GetFloat("Hammer") / 5)], transform.position, Quaternion.Euler(Vector3.up * -90));
             activeHammer.transform.parent = transform;
@@ -30,7 +30,7 @@ public class ActiveHammer : MonoBehaviour
     {
         if (PlayerPrefs.GetFloat("Hammer") % 5 == 0)
         {
-            if ((int)(PlayerPrefs.GetFloat("Hammer") / 5) < 7)
+            if ((int)(PlayerPrefs.GetFloat("Hammer") / 5) < 13)
             {
                 Destroy(activeHammer);
                 activeHammer = Instantiate(hammers[(int)(PlayerPrefs.GetFloat("Hammer") / 5)], transform.position, Quaternion.Euler(Vector3.up * -90));
