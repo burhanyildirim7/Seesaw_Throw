@@ -118,12 +118,15 @@ public class CharacterControl : MonoBehaviour
         float karakterinKuvveti;
         karakterinKuvveti = 3 + (PlayerPrefs.GetFloat("Strength") + 1) + (1 + PlayerPrefs.GetFloat("Hammer"));
 
-        kuvvet = 10 + (sayi * (karakterinKuvveti) * 1.1f + karakterinKuvveti * .4f);
+        //kuvvet = 10 + (sayi * (karakterinKuvveti) * 1.1f + karakterinKuvveti * .4f);
+        kuvvet = 10 + (sayi * (karakterinKuvveti));
+
 
         if (kuvvet >= 77.25f)
         {
             kuvvet = 77.25f;
         }
+
 
         isJumping = true;
         StartCoroutine(AnimControl());
