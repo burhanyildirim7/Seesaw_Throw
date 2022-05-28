@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4770398, g: 0.79908794, b: 0.8987446, a: 1}
+  m_IndirectSpecularColor: {r: 0.4788496, g: 0.80017924, b: 0.8994595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -712,10 +712,10 @@ RectTransform:
   m_Father: {fileID: 1995124986}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.20500001, y: 0.25500003}
-  m_AnchorMax: {x: 0.7975, y: 0.87500006}
-  m_AnchoredPosition: {x: 1.3977966, y: -1}
-  m_SizeDelta: {x: -20.9174, y: -4}
+  m_AnchorMin: {x: 0.11735126, y: 0.26000002}
+  m_AnchorMax: {x: 0.89024377, y: 0.89000005}
+  m_AnchoredPosition: {x: 0.39779663, y: -3}
+  m_SizeDelta: {x: 0.44719696, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &264878550
 MonoBehaviour:
@@ -750,7 +750,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MELE
+  m_Text: POWER
 --- !u!222 &264878551
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3763,7 +3763,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: POWER
+  m_Text: MUSCLE
 --- !u!222 &1568255057
 CanvasRenderer:
   m_ObjectHideFlags: 0
