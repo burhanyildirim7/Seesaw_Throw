@@ -19,6 +19,7 @@ public class LevelController : MonoBehaviour
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetInt("totalScore", 999999999);
         totalLevelNo = PlayerPrefs.GetInt("level");
         if (totalLevelNo == 0)
         {
@@ -70,7 +71,7 @@ public class LevelController : MonoBehaviour
         Destroy(currentLevelObj);
         IncreaseLevelNo();
         LevelStartingEvents();
-      //  PlayerController.instance.StartingEvents();
+        //  PlayerController.instance.StartingEvents();
     }
 
     public void LevelRestartEvents()

@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.2
+  bundleVersion: 0.5
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -156,7 +156,7 @@ PlayerSettings:
     iPhone: com.BurhanYildirim.SeesawThrow
   buildNumber:
     Standalone: 0
-    iPhone: 1
+    iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
@@ -271,7 +271,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 41b41c93216014c3bbee0ecf7d2a3df2, type: 3}
+      m_Icon: {fileID: 2800000, guid: 5c19c4ddbc8f04eca8027ec76b516e39, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
